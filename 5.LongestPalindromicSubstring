@@ -1,0 +1,31 @@
+/*
+  Dynamic Programming
+  Given a string s, return the longest palindromic substring in s.
+*/
+ 
+var longestPalindrome = function(s) {
+    let i = 0,
+        map = new Map();
+        map.set("result", "");
+    
+    if (s.length < 2) {
+        return s;
+    }
+         
+    while (i < s.length) {
+       expandPalindrome(s, i, i, map); 
+       expandPalindrome(s, i, i+1, map); 
+       i++;
+    }
+     
+    return map.get("result");
+};
+
+function expandPalindrome (s, start, end, map) {
+    while (start >= 0 && end < s.length && s.charAt(start) === s.charAt(end)) {
+        start--;
+        end++;
+    }
+    let max_substr = s.substring(start+1, end);
+    (max_substr.length  > map.get("result").length) && (map.set("result", max_substr));
+}
