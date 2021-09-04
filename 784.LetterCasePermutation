@@ -1,0 +1,35 @@
+/*
+Backtracking
+Given a string s, we can transform every letter individually to be lowercase or uppercase to create another string.
+Return a list of all possible strings we could create. You can return the output in any order.
+*/
+
+function swapLetters(letter) {
+    if(/[A-Z]/.test(letter) ) { 
+        return letter.toLowerCase();
+    } 
+    if(/[a-z]/.test(letter) ) { 
+        return letter.toUpperCase();
+    } 
+}
+
+
+var letterCasePermutation = function(s) {
+    let res = [];
+    
+    const traverse = (w, i) => {
+        if (w.length === s.length) {
+            res.push(w);
+            return;
+        }
+        
+        traverse(w + s[i], i + 1)
+        if(/[A-Za-z]/.test(s[i])) traverse(w + swapLetters(s[i]), i + 1)
+    } 
+    
+    traverse('', 0);
+    
+    
+    
+    return res;
+};
