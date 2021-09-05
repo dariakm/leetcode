@@ -1,0 +1,22 @@
+/*
+
+Given an integer array nums of unique elements, return all possible subsets (the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
+*/
+
+var subsets = function(nums) {
+    let result = [[]];
+    
+    function backtrack(first, current) {
+    for (let i = first; i < nums.length; i++) {
+        current.push(nums[i]);
+        result.push([...current]);
+        backtrack(i + 1, current);
+        current.pop();
+    }
+}
+    
+    backtrack(0, []);
+    return result
+};
