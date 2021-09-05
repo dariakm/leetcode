@@ -6,15 +6,13 @@ The solution set must not contain duplicate subsets. Return the solution in any 
 */
 
 var subsets = function(nums) {
-    let result = [[]];
+    let result = [];
     
     function backtrack(first, current) {
-    for (let i = first; i < nums.length; i++) {
-        current.push(nums[i]);
-        result.push([...current]);
-        backtrack(i + 1, current);
-        current.pop();
-    }
+        result.push(current);
+        for (let i = first; i < nums.length; i++) {
+            backtrack(i + 1, [...current, nums[i]]);
+        }
 }
     
     backtrack(0, []);
