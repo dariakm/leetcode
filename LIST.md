@@ -1,5 +1,11 @@
 1. TwoSum
+2. Add Two Numbers
+4. Median of Two Sorted Arrays     
 5. LongestPalindromicSubstring
+7. Reverse Integer  
+10. Regular Expression Matching
+14. Longest Common Prefix  
+15. 3Sum
 48. Rotate Image
 64. Minimum Path Sum
 78. Subsets
