@@ -1,0 +1,21 @@
+/*
+Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+The matching should cover the entire input string (not partial).
+*/
+
+var isMatch = function(s, p) {
+  let result;
+  if (!p) return !s;
+  let currentMatched = s.length > 0 && [s[0],'.'].includes(p[0]);
+    
+  if (p.length > 1 && p[1] === '*') {
+    result = isMatch(s, p.substr(2)) || 
+      currentMatched && isMatch(s.substr(1), p);
+  } else {
+    result = currentMatched && isMatch(s.substr(1), p.substr(1));
+  }
+    
+    return result;
+};
