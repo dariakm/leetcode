@@ -1,0 +1,36 @@
+/*
+The set [1, 2, 3, ..., n] contains a total of n! unique permutations.
+By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
+
+"123"
+"132"
+"213"
+"231"
+"312"
+"321"
+Given n and k, return the kth permutation sequence.
+
+*/
+
+function factorial(n) {
+  var f = 1;
+  while(n > 0) f *= n--;
+  return f;
+}
+
+function getPermutation(n, k) {
+  let res = [];
+  let arr = [];
+  for (let i = 1; i <= n; i++) arr.push(i);
+  
+  let n2 = n;
+  for (let i = 0; i < n2; i++) {
+    let nf = factorial(n-1); // factorial of n-1
+    let x = Math.ceil(k/nf) - 1;
+    res.push(arr.splice(x,1)[0]);
+    k -= x * nf;
+    n = n-1;
+  }
+  
+  return res.join('');
+}
