@@ -8,6 +8,10 @@
 15. 3Sum
 48. Rotate Image
 49. Group anagrams
+53. Maximum Subarray
+55. Jump Game
+60. Permutation Sequence
+62. Unique Paths
 64. Minimum Path Sum
 78. Subsets
 213. House Robber II
