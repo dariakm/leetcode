@@ -13,6 +13,11 @@
 60. Permutation Sequence
 62. Unique Paths
 64. Minimum Path Sum
+66. Plus One
+70. Climbing Stairs
+72. Edit Distance
+73. Set Matrix Zeroes
+75. Sort Colors
 78. Subsets
 213. House Robber II
 217. Contains Duplicate
