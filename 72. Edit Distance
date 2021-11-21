@@ -1,0 +1,26 @@
+/*
+Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.
+You have the following three operations permitted on a word:
+Insert a character
+Delete a character
+Replace a character
+ 
+*/
+
+let minDistance = function(s, t) {
+    const m = s.length, n = t.length
+
+    let prev = [...Array(n + 1).keys()]
+    for (let i = 1; i <= m; i++) {
+      let curr = new Array(n + 1)
+
+      curr[0] = i
+      for (let j = 1; j <= n; j++) {
+        if (s[i-1] === t[j-1]) curr[j] = prev[j-1]
+        else curr[j] = Math.min(prev[j-1], prev[j], curr[j-1]) + 1
+      }
+
+      prev = curr
+    }
+    return prev[n]
+};
