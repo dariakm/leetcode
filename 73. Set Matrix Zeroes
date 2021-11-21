@@ -1,0 +1,18 @@
+/*
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's, and return the matrix.
+You must do it in place.
+/*
+
+ */
+let setZeroes = function(matrix) {
+    let arr = [];
+    matrix.forEach((row, i) => 
+                   row.forEach((elem, j) =>
+                               (elem === 0) && arr.push([i,j])));
+    
+    arr.forEach(function(elem) {
+        let [i,j] = elem;
+        matrix.forEach((row) => row[j] = 0);
+        matrix[i].forEach((elem, index) => matrix[i][index] = 0);
+    });
+};
